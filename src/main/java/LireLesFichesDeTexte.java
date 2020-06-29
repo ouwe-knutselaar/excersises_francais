@@ -17,6 +17,14 @@ public class LireLesFichesDeTexte {
         StringBuilder newPhrase = new StringBuilder();
         while((readedChar = br.read())!=-1)
         {
+            if(readedChar == '\n')readedChar = ' ';
+            if(readedChar == '\r')readedChar = ' ';
+            if(readedChar == '_')continue;
+            if(readedChar == '*')continue;
+            if(readedChar == '#')continue;
+
+            if(readedChar == '\t')readedChar = ' ';
+
             newPhrase.append((char)readedChar);
             if(readedChar == '.' || readedChar == '?' || readedChar == '!')
             {
@@ -24,6 +32,7 @@ public class LireLesFichesDeTexte {
                 newPhrase.setLength(0);
             }
         }
+
         return ListOfPhrases;
     }
 }

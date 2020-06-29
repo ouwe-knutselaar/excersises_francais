@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Excersise {
+public class Exercice {
 
     private String correctPhrase;
     private String exercise_question;
     private ArrayList<String> reponde_correct = new ArrayList<>();
 
-    public Excersise(String phrase, String[] listOfWordsToQuestion)
+    public Exercice(String phrase, String[] listOfWordsToQuestion)
     {
         this.correctPhrase = phrase;
         exercise_question = phrase;

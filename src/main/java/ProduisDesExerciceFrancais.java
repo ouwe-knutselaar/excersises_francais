@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ProduisDesExcersiseFrancais {
+public class ProduisDesExerciceFrancais {
 
     /*
     qui, que, quoi, dont, où
@@ -15,13 +15,13 @@ public class ProduisDesExcersiseFrancais {
 
      */
 
-    String listOfRelatifPronoms[]={" qui "," que "," quoi "," dont "," où ",
+    private String listOfRelatifPronoms[]={" qui "," que "," quoi "," dont "," où ",
                       " lequel "," duquel "," auquel ",
                       " laquelle "," de laquelle "," à laquelle ",
                       " lesquels "," desquels "," auxquels ",
                       " lesquelles "," desquelles "," auxquelles "};
 
-    List<Excersise> PronomRelative(List<String> phrases)
+    List<Exercice> PronomRelative(List<String> phrases)
     {
         Set<String> ListOfUsablePhrases=new HashSet<>();
         for(String pronomRelatif : listOfRelatifPronoms)
@@ -29,10 +29,31 @@ public class ProduisDesExcersiseFrancais {
             phrases.forEach(phrase -> ListOfUsablePhrases.add(phrase.contains(pronomRelatif) ? phrase: "-"));
         }
 
-        List<Excersise> newListeDesExcersises=new ArrayList<>();
+        List<Exercice> newListeDesExcersises=new ArrayList<>();
         for(String phrase : ListOfUsablePhrases)
         {
-            Excersise newExcersise = new Excersise(phrase, listOfRelatifPronoms);
+            Exercice newExcersise = new Exercice(phrase, listOfRelatifPronoms);
+            newListeDesExcersises.add(newExcersise);
+        }
+
+        return newListeDesExcersises;
+    }
+
+
+    private String listDesArticles[] = {" le "," la "," les "," un "," une "};
+
+    List<Exercice> Articles(List<String> phrases)
+    {
+        Set<String> ListOfUsablePhrases=new HashSet<>();
+        for(String article : listDesArticles)
+        {
+            phrases.forEach(phrase -> ListOfUsablePhrases.add(phrase.contains(article) ? phrase: "-"));
+        }
+
+        List<Exercice> newListeDesExcersises=new ArrayList<>();
+        for(String phrase : ListOfUsablePhrases)
+        {
+            Exercice newExcersise = new Exercice(phrase, listDesArticles);
             newListeDesExcersises.add(newExcersise);
         }
 

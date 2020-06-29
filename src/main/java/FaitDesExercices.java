@@ -3,42 +3,44 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class FaitDesExcercises {
+public class FaitDesExercices {
 
-    List<Excersise> excersises = new ArrayList<>();
+    List<Exercice> exercices = new ArrayList<>();
     List<Integer> phrasesUtilisait = new ArrayList<>();
     int nombreDesExcersises=0;
 
-    public void LoadExcersises(List<Excersise> nouvellesExcersises)
+    public void LoadExercices(List<Exercice> nouvellesExercices)
     {
-        nouvellesExcersises.forEach(excersise -> excersises.add(excersise));
-        System.out.println("Nous avons "+excersises.size()+" phrases");
-        nombreDesExcersises = excersises.size();
+        nouvellesExercices.forEach(excersise -> exercices.add(excersise));
+        System.out.println("Nous avons "+ exercices.size()+" phrases");
+        nombreDesExcersises = exercices.size();
     }
 
-    public void DoExcersies(int amount)
+    public void DoExcersies(int amount,String objectif)
     {
         Random rand=new Random();
         phrasesUtilisait.clear();
-        if(amount > excersises.size())amount=excersises.size();
+        if(amount > exercices.size())amount= exercices.size();
 
         for(int tel=  0;tel<amount;tel++)
         {
-            DoTest(rand.nextInt(nombreDesExcersises));
+            DoTest(rand.nextInt(nombreDesExcersises),objectif);
             System.out.println("----\n");
         }
     }
 
-    private void DoTest(int testnumber)
+    private void DoTest(int testnumber,String objectif)
     {
-        Excersise test = excersises.get(testnumber);
+        Exercice test = exercices.get(testnumber);
         Scanner in = new Scanner(System.in);
         System.out.println(test.showQuestion());
         int tel = 1;
         for(String repond : test.getReponds())
         {
-            System.out.print("pronom pour << "+tel+" >> \n:");
+            System.out.print(objectif + " << "+tel+" >> \n:");
             String answer = in.nextLine();
+            if(answer.equals("quit"))break;
+
             if(answer.equals(repond)){
                 System.out.println("correct");
             }else
