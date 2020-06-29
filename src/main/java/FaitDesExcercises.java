@@ -1,23 +1,30 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FaitDesExcercises {
 
     List<Excersise> excersises = new ArrayList<>();
+    List<Integer> phrasesUtilisait = new ArrayList<>();
+    int nombreDesExcersises=0;
 
     public void LoadExcersises(List<Excersise> nouvellesExcersises)
     {
         nouvellesExcersises.forEach(excersise -> excersises.add(excersise));
+        System.out.println("Nous avons "+excersises.size()+" phrases");
+        nombreDesExcersises = excersises.size();
     }
 
     public void DoExcersies(int amount)
     {
+        Random rand=new Random();
+        phrasesUtilisait.clear();
         if(amount > excersises.size())amount=excersises.size();
 
         for(int tel=  0;tel<amount;tel++)
         {
-            DoTest(tel);
+            DoTest(rand.nextInt(nombreDesExcersises));
             System.out.println("----\n");
         }
     }

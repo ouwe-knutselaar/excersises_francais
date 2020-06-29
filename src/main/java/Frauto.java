@@ -8,6 +8,7 @@ public class Frauto {
       ClassLoader classLoader = new Frauto().getClass().getClassLoader();
       List<String> phrasesFrancais = LireLesFichesDeTexte.ReadTextfileToList(classLoader.getResource("text.txt").getFile());
       List<Excersise> sublist =  produisDesExcersiseFrancais.PronomRelative(phrasesFrancais);
+
       FaitDesExcercises faitDesExcercises=new FaitDesExcercises();
       faitDesExcercises.LoadExcersises(sublist);
       faitDesExcercises.DoExcersies(10);
