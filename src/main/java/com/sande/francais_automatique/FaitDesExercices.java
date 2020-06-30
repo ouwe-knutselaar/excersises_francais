@@ -1,3 +1,7 @@
+package com.sande.francais_automatique;
+
+import com.sande.francais_automatique.Exercice;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

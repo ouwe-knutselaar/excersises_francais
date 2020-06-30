@@ -1,3 +1,5 @@
+package com.sande.francais_automatique;
+
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
@@ -11,13 +13,16 @@ public class ExerciceFrancais {
 
    public static void main(String argv[]) throws IOException {
 
-      ExerciceFrancais excerciseFrancais = new ExerciceFrancais();
+      ExerciceFrancais excerciseFrancais = new ExerciceFrancais(argv[0]);
    }
 
-   public ExerciceFrancais() throws IOException {
+   public ExerciceFrancais(String nameDeFicheDeSource) throws IOException {
 
-      ClassLoader classLoader = this.getClass().getClassLoader();
-      phrasesFrancais = LireLesFichesDeTexte.ReadTextfileToList(classLoader.getResource("text.txt").getFile());
+      //ClassLoader classLoader = this.getClass().getClassLoader();
+      //phrasesFrancais = LireLesFichesDeTexte.ReadTextfileToList(classLoader.getResource("text.txt").getFile());
+
+      //File ficheDeSource = new File(nameDeFicheDeSource);
+      phrasesFrancais = LireLesFichesDeTexte.ReadTextfileToList(nameDeFicheDeSource);
 
       Scanner in = new Scanner(System.in);
       boolean loop = true;

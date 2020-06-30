@@ -1,3 +1,5 @@
+package com.sande.francais_automatique;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

@@ -1,3 +1,5 @@
+package com.sande.francais_automatique;
+
 import java.util.ArrayList;
 
 public class Exercice {
